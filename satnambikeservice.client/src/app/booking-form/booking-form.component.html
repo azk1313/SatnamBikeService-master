@@ -1,4 +1,7 @@
+
+
 <div class="booking-container">
+ 
   <h2>Enter your Details to book your service appointment</h2>
   <form  #form="ngForm" (ngSubmit)="onSubmit(form)">
 
@@ -57,17 +60,14 @@
 
       <div>
         <label for="date">Select a Date:</label>
-        <select id="date" name="date" required [(ngModel)]="preferredTime">
+        <select id="date" name="date" required [(ngModel)]="date">
           <option *ngFor="let date of availableDates" [value]="date">
             {{ date | date:'fullDate' }}
           </option>
         </select>
-        <div *ngIf="date.invalid && date.touched">
-          Date is required.
         </div>
-      </div>
       
-        <button type="submit" [disabled]="form.invalid">Submit</button>
+        <button type="submit" [disabled]="form.invalid" [disabled]="!date">Submit</button>
       </form>
       
 

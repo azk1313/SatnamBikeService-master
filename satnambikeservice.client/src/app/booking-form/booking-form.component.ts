@@ -32,7 +32,7 @@ export class BookingFormComponent {
       date: ['', Validators.required]  // Date field with required validator
     });
   
-    this.generateNextSevenDaysExcludingThursdays();
+   this.generateNextSevenDaysExcludingThursdays();
   }
 
   generateNextSevenDaysExcludingThursdays() {
@@ -42,6 +42,7 @@ export class BookingFormComponent {
     while (this.availableDates.length < 7) {
       // Move to the next day
       currentDate.setDate(currentDate.getDate() + 1);
+      
 
       // Check if the day is not Thursday (3 = Thursday)
       if (currentDate.getDay() !== 4) {
